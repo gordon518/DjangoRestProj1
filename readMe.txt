@@ -52,7 +52,7 @@ REST_FRAMEWORK = {
 
 10 Modify DjangoRestProj1/urls.py to config router.
 
-11 Run the following commands to initial database:
+11 Run the following commands to initiate database:
 python manage.py makemigrations
 python manage.py migrate
 
