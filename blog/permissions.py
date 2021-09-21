@@ -5,9 +5,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
             return True
-        session_userid=request.session.get('user_id')
-        #sessionUser=self.request.session.get('user_id')
-
+        #session_userid=request.session.get('user_id')        
         return request.session.get('user_id') is not None
 
     def has_object_permission(self, request, view, blog):
