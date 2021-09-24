@@ -60,26 +60,26 @@ python manage.py migrate
 python manage.py runserver
 
 13 Test with tools, Use chrome to test restful API, Install and use Chrome Extension:PostWoman Http Test.
-test case 1, user register:
-URL: http://localhost:8000/register
+Test case 1, user register:
+URL: http://localhost:8000/api/register
 Method:Post
 Fotmat:Custom--application/json
 JSon: {"username":"ICELEE", "password":"mypass", "name":"icelee"}
 
-test case 2, add blog, you will get error because you haven't logged in:
-URL: http://localhost:8000/blogs/
+Test case 2, add blog, you will get error because you haven't logged in:
+URL: http://localhost:8000/api/blogs/
 Method:Post
 Fotmat:Custom--application/json
 JSon: {"title":"My first blog", "body":"Oh Ya, Nice"}
 
-test case 3, user login:
-URL: http://localhost:8000/login/
+Test case 3, user login:
+URL: http://localhost:8000/api/login/
 Method:Post
 Fotmat:Custom--application/json
 JSon: {"username":"ICELEE", "password":"mypass"}
 
-test case 4, add blog, you will get succeeded this time:
-URL: http://localhost:8000/blogs/
+Test case 4, add blog, you will get succeeded this time:
+URL: http://localhost:8000/api/blogs/
 Method:Post
 Fotmat:Custom--application/json
 JSon: {"title":"My second blog", "body":"Oh Ya, Nice"}

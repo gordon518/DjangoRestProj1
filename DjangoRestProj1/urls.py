@@ -24,8 +24,8 @@ router.register(r'users',UserViewSet)
 router.register(r'blogs',BlogViewSet)
 
 urlpatterns = [
-    url(r'^',include(router.urls)),
+    url(r'^api/',include(router.urls)),
     path('admin/', admin.site.urls),
-    url(r'^register',UserRegisterAPIView.as_view()),
-    url(r'^login',UserLoginAPIView.as_view()),
+    url(r'^api/register',UserRegisterAPIView.as_view()),
+    url(r'^api/login',UserLoginAPIView.as_view()),
 ]
