@@ -17,6 +17,8 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
+from django.conf.urls.static import static
+from django.conf import settings
 from blog.views import *
 
 router = routers.DefaultRouter()
@@ -28,4 +30,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api/register',UserRegisterAPIView.as_view()),
     url(r'^api/login',UserLoginAPIView.as_view()),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
