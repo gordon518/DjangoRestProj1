@@ -1,0 +1,94 @@
+﻿<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Welcome to idate.pw, Free Friend Finder</title>
+	<meta charset="utf-8">
+	<meta name="Keywords" content="idate.pw,dating,Free Dating,Free Friend Finder,search friend">
+	<meta name="Description" content="free dating service">
+</head>
+<body>
+Wrong input API test<br/>
+<a href="api/posts" target="_blank">call "api/posts" without any parameter</a><br/>
+<a href="api/posts?tags=history,tech&sortBy=bmw" target="_blank">call "api/posts" with invalid parameter of sortBy</a><br/>
+<a href="api/posts?tags=history,tech&sortBy=id&direction=up" target="_blank">call "api/posts" with invalid parameter of direction</a><br/><br/>
+
+Formal API test<br/>
+<a href="api/ping" target="_blank">call "api/ping"</a><br/><br>
+
+<form name="form1">
+<table border="0" cellpadding="0" cellspacing="1" width="100%" bgcolor="black">
+	<tr bgcolor="LightBlue">
+		<td>Test for api/posts, You must choose at least one item for tags</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			Tags select: 
+			<input type="checkbox" name="tag" value="culture">culture
+			<input type="checkbox" name="tag" value="design">design
+			<input type="checkbox" name="tag" value="science">science
+			<input type="checkbox" name="tag" value="politics">politics
+			<input type="checkbox" name="tag" value="health">health
+			<input type="checkbox" name="tag" value="history">history
+			<input type="checkbox" name="tag" value="startups">startups
+			<input type="checkbox" name="tag" value="tech">tech
+		</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			Sort By: 
+			<select name="sortBy">
+				<option value="">None</option>
+				<option value="id">id</option>
+				<option value="reads">reads</option>
+				<option value="likes">likes</option>
+				<option value="popularity">popularity</option>
+			</select>
+		</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			Direction: 
+			<select name="direction">
+				<option value="">None</option>
+				<option value="asc">asc</option>
+				<option value="desc">desc</option>
+			</select>
+		</td>
+	</tr>
+	<tr bgcolor="white">
+		<td>
+			<input type="button" name="btSubmit" value="Call api/posts with the above parameters" onclick="onCallApi()" />
+		</td>
+	</tr>
+</table>
+</form>
+<br/>
+<br/>
+<br/>
+
+<a href="https://idate.pw">idate.pw,dating,Free Dating,Free Friend Finder,search friend</a><br/>
+</body>
+<script language="JavaScript">
+function onCallApi() {
+	var arTag=document.getElementsByName("tag");
+	var tags="";
+	for(var i=0; i<arTag.length; i++) {
+		if(arTag[i].checked) {
+			if(tags.length>0)
+				tags+=",";
+			tags+=arTag[i].value;
+		}
+	}
+	if(!tags) {
+		alert("You must choose at least one item for tags!");
+		return;
+	}
+	var url="api/posts?tags="+tags;
+	if(form1.sortBy.value && form1.sortBy.value.length>0)
+		url+="&sortBy="+form1.sortBy.value;
+	if(form1.direction.value && form1.direction.value.length>0)
+		url+="&direction="+form1.direction.value;
+	window.open(url);
+}
+</script>
+</html>
