@@ -29,7 +29,7 @@ class UserLoginAPIView(APIView):
             new_data = serializer.data
             # save user to session
             self.request.session['user_id'] = user.id
-            seesionUserid=request.session.get('user_id')
+            #seesionUserid=request.session.get('user_id')
             return Response(new_data, status=HTTP_200_OK)
         return Response('password error', HTTP_400_BAD_REQUEST)
 
